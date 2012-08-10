@@ -1,0 +1,26 @@
+CATEGORY="Net"
+SUMMARY="Curses IRC/XMPP client"
+DESCRIPTION="WeeChat is a fast, light and extensible chat client."
+HOMEPAGE="http://www.weechat.org/"
+SRC_URI="http://www.weechat.org/files/src/${P}.tar.bz2"
+PATCH_URI="01-libpython.patch"
+
+PKG_NAMES="${PN}"
+for p in guile lua perl python ruby tcl
+do
+	PKG_NAMES+=" ${PN}-$p"
+	weechat_CONTENTS+=" --exclude=$p.dll"
+	declare weechat_${p}_SUMMARY="WeeChat $p scripting plugin"
+	declare weechat_${p}_CONTENTS="usr/lib/weechat/plugins/$p.dll"
+done
+weechat_CONTENTS+=" usr/"
+
+src_compile() {
+	cd ${S}
+	cygautoreconf
+	cd ${B}
+	cygconf
+	cygmake LDFLAGS="-avoid-version -no-undefined"
+}
+
+KEEP_LA_FILES="none"
