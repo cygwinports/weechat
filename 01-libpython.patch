@@ -1,12 +1,12 @@
 --- origsrc/weechat-0.3.8/configure.in	2012-06-03 01:46:36.000000000 -0500
 +++ src/weechat-0.3.8/configure.in	2012-08-10 00:57:53.448176800 -0500
 @@ -482,6 +482,9 @@ if test "x$enable_python" = "xyes" ; the
-             if test -r "$PYTHON_LIB/libpython$PYTHON_VERSION.so"; then
-                PYTHON_LFLAGS="-L$PYTHON_LIB $PYTHON_LFLAGS"
-                AC_MSG_RESULT(found)
-+            elif test -r "$PYTHON_LIB/libpython$PYTHON_VERSION.dll.a"; then
-+               PYTHON_LFLAGS="-L$PYTHON_LIB $PYTHON_LFLAGS"
-+               AC_MSG_RESULT(found)
-             elif test -r "$PYTHON_LIB/libpython$PYTHON_VERSION.a"; then
-                PYTHON_LFLAGS="-L$PYTHON_LIB $PYTHON_LFLAGS"
-                AC_MSG_RESULT(found)
+                 if test -r "$PYTHON_LIB/libpython$PYTHON_VERSION.so"; then
+                    PYTHON_LFLAGS="-L$PYTHON_LIB $PYTHON_LFLAGS"
+                    AC_MSG_RESULT(found)
++                elif test -r "$PYTHON_LIB/libpython$PYTHON_VERSION.dll.a"; then
++                   PYTHON_LFLAGS="-L$PYTHON_LIB $PYTHON_LFLAGS"
++                   AC_MSG_RESULT(found)
+                 elif test -r "$PYTHON_LIB/libpython$PYTHON_VERSION.a"; then
+                    PYTHON_LFLAGS="-L$PYTHON_LIB $PYTHON_LFLAGS"
+                    AC_MSG_RESULT(found)
