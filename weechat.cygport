@@ -1,5 +1,5 @@
 NAME="weechat"
-VERSION=0.3.9
+VERSION=0.3.9.1
 RELEASE=1
 CATEGORY="Net"
 SUMMARY="Curses IRC/XMPP client"
