@@ -18,6 +18,7 @@ do
 	PKG_NAMES+=" ${NAME}-$p"
 	weechat_CONTENTS+=" --exclude=$p.dll"
 	declare weechat_${p}_SUMMARY="WeeChat $p scripting plugin"
+	declare weechat_${p}_REQUIRES="weechat"
 	declare weechat_${p}_CONTENTS="usr/lib/weechat/plugins/$p.dll"
 done
 weechat_CONTENTS+=" etc/ usr/"
