@@ -1,0 +1,22 @@
+--- origsrc/weechat-0.4.1/configure.in	2013-09-08 14:49:32.257702300 -0500
++++ src/weechat-0.4.1/configure.in	2013-09-08 15:05:39.901048300 -0500
+@@ -52,9 +52,6 @@ netbsd*)
+ solaris*)
+         LDFLAGS="$LDFLAGS -lsocket -lxnet"
+         ;;
+-cygwin*)
+-        LDFLAGS="$LDFLAGS -no-undefined"
+-        ;;
+ esac
+ 
+ # Gettext
+@@ -1042,6 +1039,9 @@ netbsd*)
+ gnu*)
+         LDFLAGS="$LDFLAGS -lpthread"
+         ;;
++cygwin*)
++        LDFLAGS="$LDFLAGS -avoid-version -no-undefined"
++        ;;
+ *)
+         ;;
+ esac
